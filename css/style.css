@@ -146,7 +146,7 @@ a:active {
   width: 40%;
   -webkit-background-size: cover;
   background-size: cover;
-  background-color: #fff;
+  background-color: pink;
   height: 100%;
   transition: 0.8s;
   top: 0;
@@ -345,18 +345,19 @@ a:active {
     font-size: 24px;
     color: #666666;
     font-weight: 600;
-    line-height: 2.2em; }
-  .list-with-title .listing {
+    line-height: 2.2em;
+    margin: 0; }
+  .list-with-title .listing, .list-with-title .listing > .tag-list, .list-with-title .listing > .category-list {
     padding: 0; }
-    .list-with-title .listing .listing-post {
+    .list-with-title .listing a, .list-with-title .listing > .tag-list a, .list-with-title .listing > .category-list a {
+      color: #8F8F8F; }
+      .list-with-title .listing a:hover, .list-with-title .listing > .tag-list a:hover, .list-with-title .listing > .category-list a:hover {
+        color: #4786D6; }
+    .list-with-title .listing .listing-post, .list-with-title .listing > .tag-list .listing-post, .list-with-title .listing > .category-list .listing-post {
       padding-bottom: 5px; }
-      .list-with-title .listing .listing-post .post-time {
+      .list-with-title .listing .listing-post .post-time, .list-with-title .listing > .tag-list .listing-post .post-time, .list-with-title .listing > .category-list .listing-post .post-time {
         float: right;
         color: #C5C5C5; }
-      .list-with-title .listing .listing-post a {
-        color: #8F8F8F; }
-        .list-with-title .listing .listing-post a:hover {
-          color: #4786D6; }
 
 /* share */
 .share {
@@ -544,7 +545,8 @@ a.btn {
     width: 100%;
     position: absolute;
     border-right: none;
-    z-index: 1; }
+    z-index: 1;
+    height: auto; }
     .sidebar .logo-title {
       padding-top: 120px; }
       .sidebar .logo-title .title img {
