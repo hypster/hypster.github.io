@@ -566,3 +566,22 @@ a.btn {
     display: none; }
   .share {
     display: grid; } }
+
+span.spoiler:hover {
+  text-shadow: grey 0 0 5px; }
+
+span.spoiler {
+  color: transparent;
+  background-color: transparent;
+  text-shadow: grey 0 0 10px;
+  cursor: pointer;
+  -webkit-transition: text-shadow .5s ease;
+  -moz-transition: text-shadow .5s ease;
+  transition: text-shadow .5s ease; }
+
+span.spoiler.revealed {
+  text-shadow: grey 0 0 0; }
+
+a.btn.lang {
+  letter-spacing: 0;
+  color: #868686; }
