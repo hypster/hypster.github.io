@@ -1,11 +1,12 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 html {
   background-color: #fff;
   -webkit-font-smoothing: antialiased; }
 
 body {
   color: rgba(0, 0, 0, 0.5);
-  font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  font-family: 'Roboto Slab', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 15px;
   width: 100%;
   margin: 0 auto 30px auto;
@@ -172,11 +173,12 @@ a:active {
       font-weight: bold;
       letter-spacing: 2px;
       line-height: 1;
+      margin: 12px 0 0; }
+    .sidebar .logo-title .title h5 {
       margin: 0; }
     .sidebar .logo-title .title a {
       text-decoration: none;
       color: #464646;
-      font-size: 2rem;
       font-weight: bold; }
   .sidebar .social-links {
     list-style: none;
@@ -196,7 +198,8 @@ a:active {
 
 .post {
   background-color: #FFF;
-  margin: 30px; }
+  margin: 30px;
+  position: relative; }
   .post .post-title h1 {
     text-transform: uppercase;
     font-size: 30px;
@@ -225,12 +228,17 @@ a:active {
       text-decoration: underline; }
   .post .post-content p {
     text-align: justify;
-    font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: 'Roboto Slab', "PingFang SC", "Microsoft YaHei", sans-serif;
     line-height: 2;
     color: #555;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 1px; }
+  .post .post-content.en p {
+    letter-spacing: 0;
+    font-size: 20px; }
+  .post .post-content.main_page_content p {
+    font-size: 16px; }
   .post .post-content a {
     text-decoration: none;
     letter-spacing: 1px;
@@ -244,6 +252,11 @@ a:active {
   .post .post-content h4 {
     color: #5F5F5F;
     font-size: 16px; }
+  .post .post-content figure {
+    width: fit-content; }
+    .post .post-content figure figcaption {
+      display: block;
+      text-align: center; }
   .post .post-footer {
     padding: 0 0 30px 0;
     border-bottom: 1px solid #f2f2f2; }
@@ -592,7 +605,10 @@ span.spoiler.revealed {
 
 a.btn.lang {
   letter-spacing: 0;
-  color: #868686; }
+  color: #868686;
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .heimu {
   color: #252525;
@@ -600,3 +616,24 @@ a.btn.lang {
   transition: color 0.13s linear; }
   .heimu:hover {
     color: white; }
+
+.post-copyright {
+  margin-bottom: 1em; }
+  .post-copyright li {
+    list-style: none;
+    padding-left: 2em;
+    padding-right: 2em; }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0; }
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%; }

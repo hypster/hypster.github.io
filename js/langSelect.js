@@ -18,4 +18,11 @@ $(function() {
   $('.spoiler').click(function() {
     $(this).toggleClass('revealed')
   })
+  if (window.location.pathname.substr(0, 4) == '/en/') {
+    $('.post-content').addClass('en')
+  }
+
+  $('.widget.tagcloud a').css({
+    color: '#464646'
+  })
 })
