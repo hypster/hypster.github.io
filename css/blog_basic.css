@@ -43,7 +43,12 @@
 pre {
   font-size: 0.8em !important;
   background-color: #f8f8f8 !important;
-  font-family: 'Roboto Mono', 'Lucida Console', 'Trebuchet MS', 'Courier New', Monaco, courier, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', monospace !important
+  /* font-family: 'Roboto Mono', 'Lucida Console', 'Trebuchet MS', 'Courier New', Monaco, courier, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', monospace !important */
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+figure.highlight pre {
+  font-size: 1em !important;
 }
 
 figure.highlight {
@@ -299,7 +304,7 @@ h5,
 h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 h1 {

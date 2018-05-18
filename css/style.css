@@ -5,7 +5,7 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
   font-family: 'Roboto Slab', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 15px;
   width: 100%;
@@ -256,7 +256,11 @@ a:active {
     width: fit-content; }
     .post .post-content figure figcaption {
       display: block;
-      text-align: center; }
+      margin-top: 0.7em;
+      margin-left: 1.4em;
+      margin-bottom: -.8em; }
+    .post .post-content figure.highlight {
+      width: auto; }
   .post .post-footer {
     padding: 0 0 30px 0;
     border-bottom: 1px solid #f2f2f2; }
