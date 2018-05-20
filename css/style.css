@@ -253,12 +253,15 @@ a:active {
     color: #5F5F5F;
     font-size: 16px; }
   .post .post-content figure {
-    width: fit-content; }
+    width: fit-content;
+    margin-left: 0; }
     .post .post-content figure figcaption {
       display: block;
-      margin-top: 0.7em;
-      margin-left: 1.4em;
-      margin-bottom: -.8em; }
+      margin-bottom: -.8em;
+      text-align: center;
+      margin-left: 0;
+      margin-top: 0;
+      text-align: center; }
     .post .post-content figure.highlight {
       width: auto; }
   .post .post-footer {
