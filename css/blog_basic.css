@@ -338,6 +338,12 @@ img {
   height: auto;
 }
 
+@media screen and (min-width: 1092px) {
+  img {
+    max-width: 600px;
+  }
+}
+
 p,
 ul,
 ol,
