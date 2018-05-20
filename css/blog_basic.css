@@ -396,14 +396,48 @@ hr {
 
 blockquote {
   box-sizing: border-box;
-  margin: 1.6em 0 1.6em -2.2em;
-  padding: 0 0 0 1.6em;
-  border-left: #4a4a4a 0.4em solid;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 }
 
 blockquote p {
   margin: 0.8em 0;
+  display: inline;
 }
+blockquote:before, blockquote:after {
+  color: rgba(0,0,0,.2);
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote:before {
+  /* content: '“'; */
+  content: open-quote;
+}
+blockquote:after {
+  /* content: '”'; */
+  content: close-quote;·
+}
+/* blockquote > p:first-child, blockquote > p:last-child {
+  position: relative;
+  display: inline-block;
+} */
+/* blockquote > p:first-child:before, blockquote > p:last-child:after {
+  content: "\"";
+  top: 0;
+  position: absolute;
+  font-size: 4em;
+} */
+/* blockquote >p:first-child:before{
+  left: 0;
+}
+blockquote > p:last-child:after {
+  right: 0;
+} */
 
 blockquote small {
   display: inline-block;
