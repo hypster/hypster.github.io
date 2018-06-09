@@ -469,6 +469,7 @@ blockquote cite a {
 
 blockquote footer {
   float: right;
+  padding-top: 2em;
 }
 
 mark {
