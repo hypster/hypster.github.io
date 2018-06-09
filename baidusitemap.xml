@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://hypster.github.io/2018/06/09/%E5%8E%BB%E4%BA%86%E4%B8%8A%E6%B5%B7%E5%BD%93%E4%BB%A3%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%A6%86/</loc>
+    <lastmod>2018-06-09T15:03:59.380Z</lastmod>
+    <data>
+        <display>
+        <title>记两个展览：Beautiful Elsewhere和Storage Memory（前篇：博物馆周边记）</title>
+        <pubTime>2018-06-09T02:18:00.000Z</pubTime>
+        
+        <tag>日常</tag>
+         
+        <tag>展览</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hypster.github.io/2018/06/01/%E7%94%B3%E8%AF%B7%E4%B8%93%E4%B8%9A/</loc>
     <lastmod>2018-05-31T18:06:56.921Z</lastmod>
     <data>
@@ -130,23 +149,6 @@
 
     
   <url>
-    <loc>https://hypster.github.io/2018/05/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8CORS%E8%BF%9B%E8%A1%8C%E8%B7%A8%E5%9F%9F/</loc>
-    <lastmod>2018-05-28T10:48:14.872Z</lastmod>
-    <data>
-        <display>
-        <title>如何使用CORS进行跨域</title>
-        <pubTime>2018-05-24T08:49:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://hypster.github.io/2018/05/04/test1/</loc>
     <lastmod>2018-05-28T10:48:14.872Z</lastmod>
     <data>
@@ -157,6 +159,23 @@
         <tag>食饭</tag>
          
         <tag>日常</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hypster.github.io/2018/05/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8CORS%E8%BF%9B%E8%A1%8C%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2018-05-28T10:48:14.872Z</lastmod>
+    <data>
+        <display>
+        <title>如何使用CORS进行跨域</title>
+        <pubTime>2018-05-24T08:49:00.000Z</pubTime>
+        
+        <tag>code</tag>
          
          
            
