@@ -408,7 +408,8 @@ blockquote {
   margin-top: 0;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
-  float: right;
+  float: left;
+  width: 100%;
 }
 
 blockquote p {
@@ -416,6 +417,10 @@ blockquote p {
   display: inline;
   padding-bottom: 1em;
 }
+blockquote + * {
+  clear: both;
+}
+
 blockquote:before, blockquote:after {
   color: rgba(0,0,0,.2);
   font-size: 4em;
