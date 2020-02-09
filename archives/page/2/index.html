@@ -1,22 +1,261 @@
-extends partial/layout
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-block site_title
-    !=  "归档 · " + config.title
+  
+  <title>Archives | Souldough</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="souldough的个人博客，提供音乐信息教学，日剧影评，技术分享和生活杂感。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Souldough">
+<meta property="og:url" content="https://hypster.github.io/archives/page/2/index.html">
+<meta property="og:site_name" content="Souldough">
+<meta property="og:description" content="souldough的个人博客，提供音乐信息教学，日剧影评，技术分享和生活杂感。">
+<meta property="og:locale" content="ch">
+<meta property="article:author" content="Souldough">
+<meta property="article:tag" content="souldough">
+<meta property="article:tag" content=" 音樂">
+<meta property="article:tag" content=" 日劇">
+<meta property="article:tag" content=" web開發">
+<meta property="article:tag" content="部落格，博客">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-block description
-    - var desc = '归档页面 - ' + config.title;
-    meta(name="description", content=desc)
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-block content
-    .autopagerize_page_element: .content
-      .archive.animated.fadeInDown
-        .widget-wrap
-          ul.list-with-title
-            .archive
-              h3.widget-title.listing-title tags
-              .widget.listing
-                != list_tags()
-        ul.list-with-title
-          include mixins
-          +postList()
-          +make_pager(__('prev'), __('next'))
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hypster.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8CORS%E8%BF%9B%E8%A1%8C%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
+  <time datetime="2018-05-24T14:49:00.000Z" itemprop="datePublished">May 24</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8CORS%E8%BF%9B%E8%A1%8C%E8%B7%A8%E5%9F%9F/">如何使用CORS进行跨域</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/20/%E8%A7%82%E7%9C%8B%E7%94%B5%E5%BD%B1%E3%80%8C%E6%98%BC%E9%A2%9C%E3%80%8D%E5%BC%95%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9D%82%E6%84%9F/" class="archive-article-date">
+  <time datetime="2018-05-20T13:58:00.000Z" itemprop="datePublished">May 20</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/20/%E8%A7%82%E7%9C%8B%E7%94%B5%E5%BD%B1%E3%80%8C%E6%98%BC%E9%A2%9C%E3%80%8D%E5%BC%95%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9D%82%E6%84%9F/">观看电影「昼颜」引发的一些杂感</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/18/%E4%BD%BF%E7%94%A8jsonwebtoken%E6%9D%A5%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" class="archive-article-date">
+  <time datetime="2018-05-18T12:42:00.000Z" itemprop="datePublished">May 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/18/%E4%BD%BF%E7%94%A8jsonwebtoken%E6%9D%A5%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/">使用jsonwebtoken来进行用户验证</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/17/%E4%BD%BF%E7%94%A8passport%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" class="archive-article-date">
+  <time datetime="2018-05-17T08:35:00.000Z" itemprop="datePublished">May 17</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/17/%E4%BD%BF%E7%94%A8passport%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/">使用passport进行用户验证</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/09/%E5%B0%8F%E6%97%B6%E5%80%99%E5%90%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%9F%B3%E4%B9%90/" class="archive-article-date">
+  <time datetime="2018-05-09T17:37:00.000Z" itemprop="datePublished">May 9</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/09/%E5%B0%8F%E6%97%B6%E5%80%99%E5%90%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%9F%B3%E4%B9%90/">小时候听的一些杂七杂八的音乐</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/08/%E6%88%91%E6%9C%80%E7%88%B1%E7%9A%84%E6%97%A5%E5%89%A7%20%E2%80%94%E2%80%94%E3%80%8E%E6%9C%80%E9%AB%98%E3%81%AE%E9%9B%A2%E5%A9%9A%E3%80%8F/" class="archive-article-date">
+  <time datetime="2018-05-08T14:22:00.000Z" itemprop="datePublished">May 8</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/08/%E6%88%91%E6%9C%80%E7%88%B1%E7%9A%84%E6%97%A5%E5%89%A7%20%E2%80%94%E2%80%94%E3%80%8E%E6%9C%80%E9%AB%98%E3%81%AE%E9%9B%A2%E5%A9%9A%E3%80%8F/">我最爱的日剧 ——『最高の離婚』</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/08/%E6%88%91%E5%90%AC%E7%9A%84%E7%AC%AC%E4%B8%80%E5%BC%A0%E5%B8%A6%E6%9C%89%E5%90%89%E6%99%AE%E8%B5%9B%E7%88%B5%E5%A3%AB%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%93%E8%BE%91/" class="archive-article-date">
+  <time datetime="2018-05-08T14:20:00.000Z" itemprop="datePublished">May 8</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/08/%E6%88%91%E5%90%AC%E7%9A%84%E7%AC%AC%E4%B8%80%E5%BC%A0%E5%B8%A6%E6%9C%89%E5%90%89%E6%99%AE%E8%B5%9B%E7%88%B5%E5%A3%AB%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%93%E8%BE%91/">我听的第一张带有吉普赛爵士风格的专辑</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/04/test1/" class="archive-article-date">
+  <time datetime="2018-05-04T09:06:00.000Z" itemprop="datePublished">May 4</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/04/test1/">由吃的行为想到的</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Souldough<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
