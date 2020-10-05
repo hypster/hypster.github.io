@@ -68,7 +68,9 @@ body {
     font-family: 'LucidaGrande';
 
 }
-
+#cv {
+    text-decoration: underline;
+}
 h1, h2, h3, h4, p {
     color: #1a4557;
     font-family: 'Palatino-Italic';
