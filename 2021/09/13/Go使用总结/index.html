@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="S.Akai"><title>Go使用总结 · S.Akai</title><meta name="description" content="代码组织go的项目通常对应一个模块，模块下有很多package，package对应一个文件夹，需要在项目的根目录下创建go.mod来指定module的路径，该路径不但是包引用的prefix path，同时也告诉go如何去获取网上资源
+go install会将程序打包成二进制，存放目录是$GOPATH"><meta name="keywords" content="S.Akai, 音樂, 日劇, web開發,部落格，博客"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="google-site-verification" content="EoyjLufosvy0SbD-iVe-DFl2wvMlOYmu9Cq01LnJ7Dw"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png"><h5 title=""><a href="/"></a></h5><div class="description"><div class="widget-wrap"><div class="widget tagcloud"><a href="/tags/code/" style="font-size: 20px;">code</a> <a href="/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 10px;">动漫</a> <a href="/tags/%E5%B1%95%E8%A7%88/" style="font-size: 10px;">展览</a> <a href="/tags/%E6%97%A5%E5%89%A7/" style="font-size: 16.67px;">日剧</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 13.33px;">日常</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 10px;">电影</a> <a href="/tags/%E8%B4%B4%E5%A3%AB/" style="font-size: 10px;">贴士</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 13.33px;">音乐</a></div></div></div></div></div><ul class="social-links"></ul></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/cv">CV</a></li><li><a href="/archives">Archive</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/logo@2x.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Go使用总结</a></h3></div><div class="post-content"><h1 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h1><p>go的项目通常对应一个模块，模块下有很多package，package对应一个文件夹，需要在项目的根目录下创建go.mod来指定module的路径，该路径不但是包引用的prefix path，同时也告诉go如何去获取网上资源</p>
+<p><code>go install</code>会将程序打包成二进制，存放目录是<code>$GOPATH/bin</code>, <code>$GOPATH</code>默认是<code>$HOME/go</code></p>
+<p><code>go build</code>可以构建package，构建结果放入cache中，所以不会有文件生成</p>
+<p><code>go mod tidy</code>将新的项目依赖写入go.mod文件,同时删除不需要的依赖</p>
+<p>go的依赖统一安装，如果多个项目依赖相同版本的module，那么该module不会被重新安装，这个比单独项目来维护依赖节约很多空间<br>甚至为了节省空间，可以把安装的依赖完全删除<br><code>go clean -modcache</code></p>
+<h1 id="基础测试"><a href="#基础测试" class="headerlink" title="基础测试"></a>基础测试</h1><p>go测试，一般在你的package下创建一个结尾为_test的文件，引入testing包，创建函数，格式为<code>func TestXXX(t *testing.T){}</code>,在函数内部调用t的<code>Fail</code>或<code>Error</code>方法来表示错误，最后在package下运行<code>go test</code></p>
+<h1 id="语法要点（基于GOTOUR）"><a href="#语法要点（基于GOTOUR）" class="headerlink" title="语法要点（基于GOTOUR）"></a>语法要点（基于GOTOUR）</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>go不支持<code>++i</code>语法 <code>i++</code>是语句不是表达式，所以<code>j=i++</code>是错误的</p>
+<p>go的返回值可以命名，return语句不带返回值默认返回命名返回值</p>
+<p>:=语法只能在函数体内被使用</p>
+<p>go的基本变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">bool</span><br><span class="line"></span><br><span class="line">string</span><br><span class="line"></span><br><span class="line">int  int8  int16  int32  int64</span><br><span class="line">uint uint8 uint16 uint32 uint64 uintptr</span><br><span class="line"></span><br><span class="line">byte &#x2F;&#x2F; alias for uint8</span><br><span class="line"></span><br><span class="line">rune &#x2F;&#x2F; alias for int32</span><br><span class="line">     &#x2F;&#x2F; represents a Unicode code point</span><br><span class="line"></span><br><span class="line">float32 float64</span><br><span class="line"></span><br><span class="line">complex64 complex128</span><br></pre></td></tr></table></figure>
+
+<p>var也可以同import一样使用（）来给一组变量赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var (</span><br><span class="line">  var_name &#x3D; var_value</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>go在赋值时需要<strong>显示</strong>转换</p>
+<p>go除了<code>var</code>还有<code>constant</code></p>
+<p><code>switch</code>也可写一条赋值语句，<code>switch</code>后面什么都不写可以作为<code>if else</code>语句使用</p>
+<p><code>defer</code>关键字使得后面的函数调用在函数返回时才执行，但是函数的参数会先evaluate，通常可以进行一些读写关闭的操作</p>
+<p>多个defer语句执行顺序是LIFO</p>
+<p>定义struct</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Name struct &#123;</span><br><span class="line">  field...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>构建struct<br><code>Name {value...}</code>或<br><code>Name {key:value}</code></p>
+<p>自我备注：对于不包含field的struct，我们通常不会去创建一个struct，比如EOF错误，我们一般不需要去初始化</p>
+<p>go中可以通过.的方式直接通过指针来访问field，无需dereferencing</p>
+<p>数组创建的格式是[n]T</p>
+<p>slices指向的是数组，所以对slice的变动会影响到底下的数组</p>
+<p>slice literal通过[]T{value…}来创建，它首先创建数组，然后再创建一个slice</p>
+<p>通过len得到slice的长度，通过cap得到底下的数组的长度，起始位置是从slice起始位置计算的</p>
+<p>slice的zero value是nil</p>
+<p>通过<code>make</code>创建slice，实现动态大小的数组</p>
+<p>make([]T, len) 创建长度为len的slice</p>
+<p>make([]T, len, cap)创建长度为len，而底下的数组大小为cap</p>
+<p>通过append(s []T, vs …T) []T 来添加元素</p>
+<p><code>for i, v:= range slice</code>来遍历slice</p>
+<p><code>for i:= range slice</code> 只获取index</p>
+<p>创建map的方法 <code>m := make(map[keyType]ValueType)</code></p>
+<p>或literal方式 <code>var m = map[keyType]ValueType {
+  key: val,
+}</code></p>
+<p>如果valueType不是多重嵌套的结构，可以只写括号，无需ValueType{}，比如常见的struct</p>
+<p>判断key存在与否：<code>ele, ok = m[key]</code></p>
+<p>删除<code>delete(m , key)</code></p>
+<p>方法比函数多一个receiver argument： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func (type T) funcName()&#123;</span><br><span class="line">  &#x2F;&#x2F;can use type here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要修改struct值，需要传递pointer receiver<br>记住所有argument包括receiver argument都是传值的</p>
+<p>对于含有pointer receiver的方法，在调用时无需(&amp;v).method，只需要v.method,go会自动将其转换成pointer，但是对于普通函数argument必须一致</p>
+<p>同理，如果receiver argument定义的是value，那么当你使用pointer.method时，go会自动转换成value。总之，receiver argument使用起来是比较随意的，但是普通的argument必须保持完全一致</p>
+<p>选择pointer receiver，好处：</p>
+<ol>
+<li><p>可以修改参数值</p>
+</li>
+<li><p>避免copy过程</p>
+</li>
+</ol>
+<p>定义interface:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> type MyType interface &#123;</span><br><span class="line">   method signatue...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>interface可以看作（value，type）的tuple</p>
+<p>go语言中对于interface的implementation是隐式的，没有类似implement的关键字，当一个struct“恰好”拥有了一系列interface定义的方法，那它就是implement了这个interface了，所以具体的实现可以同interface脱离开来，放在不同的package下</p>
+<p>对于一个interface type的var，如果其value是nil值，也就是未被初始化的值，调用其方法并不会抛异常，receiver只会得到nil值，通常通过程序本身来处理nil值。</p>
+<p>但是如果是为nil的interface，调用其方法会报错，因为此时interface的type为nil，所以无法找到对应的方法,同时value当然也为nil。</p>
+<p>empty interface，书写为interface{}，通常在参数类型不确定的时候使用，如fmt.Printf函数</p>
+<p>type assertion,用来获取interface底下具体的值，注意这跟类型转换不一样，如果是int，那就得用int，不能用float64不然会报错<br><code>t := i.(T)</code><br>错误的assertion会panic<br>更安全的方式<br><code>t, ok := i.(T)</code></p>
+<p><code>type switch</code>，注意<code>type</code>是关键词，类似于进行多次的type assertion</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">switch v :&#x3D; i.(type) &#123;</span><br><span class="line">case T:</span><br><span class="line">    &#x2F;&#x2F; here v has type T</span><br><span class="line">case S:</span><br><span class="line">    &#x2F;&#x2F; here v has type S</span><br><span class="line">default:</span><br><span class="line">    &#x2F;&#x2F; no match; here v has the same type as i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内置interface： </p>
+<p><code>error</code>，有一个<code>Error</code>方法</p>
+<p><code>fmt.Stringer</code> interface，有一个<code>String</code>方法，fmt的package在打印时会调用这些interface的方法</p>
+<p>t <em>Type这个代表t是pointer类，注意同</em>p还可以用来dereference</p>
+<h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><p>chanel的创建：<br><code>c := make(chan T)</code></p>
+<p>从channel发送和接受值<br><code>v &lt;- ch</code><br><code>ch &lt;- v</code></p>
+<p>创建buffered channel:<br><code>c := make(chan T, buffer_size)</code></p>
+<p>buffered channel会阻塞，分以下情况：</p>
+<ol>
+<li>当buffer满了还要加入新的元素时</li>
+<li>当buffer是空的但是对方还在等待接受时</li>
+</ol>
+<p><code>close(channel)</code>来通知receiver管道已经关闭，没有值需要传输</p>
+<p><code>v, ok := &lt;-c</code><br>可以来判断管道是否关闭，ok为false为关闭</p>
+<p><code>for v:= range c {
+}</code><br>自动检查管道的关闭</p>
+<p>注意，receiver不应该<code>close</code>，否则发送时会panic,只有sender才可以<code>close</code></p>
+<p>select语句会选择非阻塞的channel，如果都是非阻塞的，则会随机选择，可以通过select的阻塞特性来完成程序的逻辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line">  case chanel operation1:</span><br><span class="line">    logic</span><br><span class="line">  case chanel operation2:</span><br><span class="line">    logic</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：select每次只能跑一个</p>
+<p>go提供了<code>sync.Mutex</code>类，它具有<code>Lock</code>和<code>Unlock</code>方法，可以确保代码的互斥Mutual Exclusion</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-09-13</span><i class="fa fa-comment-o"></i><a href="/2021/09/13/Go%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/#comments">Comments</a><i class="fa fa-tag"></i><a class="tag" href="/tags/code/" title="code">code </a></div></div></div></div><div class="post-copyright"><li class="post-copyright-author"><strong>本文作者：灵魂面团</strong></li><li class="post-copyright-link"> <strong>本文链接：https://hypster.github.io/2021/09/13/Go使用总结/</strong></li><li class="post-copyright-license"><strong>版权声明：</strong><a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>本作品采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。</li></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://hypster.github.io/2021/09/13/Go使用总结/,S.Akai,Go使用总结,;" target="_blank" rel="noopener"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2021/02/20/MyBatis%E9%85%8D%E7%BD%AE/" title="MyBatis使用技巧">next post</a></li></ul></div><a id="comments"></a><div id="disqus_thread"></div><script>var disqus_shortname = 'hypster';
+var disqus_identifier = '2021/09/13/Go使用总结/';
+var disqus_title = 'Go使用总结';
+var disqus_url = 'https://hypster.github.io/2021/09/13/Go使用总结/';
+var disqus_config = function () {
+  this.page.url = 'https://hypster.github.io/2021/09/13/Go使用总结/';; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '2021/09/13/Go使用总结/';; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.setAttribute('data-timestamp', +new Date());
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//#{theme.disqus}.disqus.com/count.js" async></script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
